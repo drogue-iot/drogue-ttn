@@ -1,0 +1,19 @@
+[package]
+name = "drogue-ttn"
+version = "0.1.0"
+authors = ["Jens Reimann <jreimann@redhat.com>"]
+edition = "2018"
+license = "Apache-2.0"
+description = "API mappings for the 'The Things Network'"
+repository = "https://github.com/drogue-iot/drogue-ttn"
+homepage = "https://blog.drogue.io"
+categories = ["api-bindings"]
+keywords = ["ttn", "The Things Network", "IoT", "LoRa", "LoRaWAN"]
+readme = "README.md"
+
+[dependencies]
+
+serde = { version = "1", features = ["derive"] }
+
+chrono = { version = "0.4", features = ["serde"] }
+url = { version = "2", features = ["serde"] }
