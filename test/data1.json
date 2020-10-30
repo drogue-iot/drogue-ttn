@@ -1,0 +1,30 @@
+{
+  "app_id": "foo",
+  "counter": 26416,
+  "dev_id": "device-01",
+  "downlink_url": "https://integrations.thethingsnetwork.org/ttn-eu/api/v2/down/foo/bar?key=12345",
+  "hardware_serial": "0123456789ABCDEF",
+  "metadata": {
+    "coding_rate": "4/5",
+    "data_rate": "SF7BW125",
+    "frequency": 868.1,
+    "gateways": [
+      {
+        "channel": 0,
+        "gtw_id": "eui-58a0cbfffe8017e6",
+        "rf_chain": 0,
+        "rssi": -78,
+        "snr": 8.5,
+        "time": "2020-10-30T16:25:02.12522602Z",
+        "timestamp": 10661491
+      }
+    ],
+    "modulation": "LORA",
+    "time": "2020-10-30T16:25:02.152921406Z"
+  },
+  "payload_fields": {
+    "luminosity_21": 5
+  },
+  "payload_raw": "FWUABQ==",
+  "port": 1
+}

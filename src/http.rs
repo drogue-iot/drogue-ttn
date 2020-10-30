@@ -1,8 +1,13 @@
 //! Mappings for the HTTP integration.
 
+use base64::STANDARD;
+use base64_serde::base64_serde_type;
+
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use url::Url;
+
+base64_serde_type!(Base64Standard, STANDARD);
 
 /// Uplink message.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -12,8 +17,11 @@ pub struct Uplink {
     pub hardware_serial: String,
     pub port: u16,
     pub counter: u32,
+    #[serde(default)]
     pub is_retry: bool,
+    #[serde(default)]
     pub confirmed: bool,
+    #[serde(with = "Base64Standard")]
     pub payload_raw: Vec<u8>,
 
     pub metadata: Metadata,
@@ -33,7 +41,7 @@ pub struct Metadata {
     pub coding_rate: String,
 
     #[serde(flatten)]
-    pub coordinates: Coordinates,
+    pub coordinates: Option<Coordinates>,
 
     #[serde(skip_serializing_if = "Vec::is_empty", default)]
     pub gateways: Vec<Gateway>,
@@ -47,11 +55,11 @@ pub struct Gateway {
     pub channel: u32,
     pub rssi: f64,
     #[serde(default)]
-    pub snr: i32,
+    pub snr: f64,
     #[serde(default)]
     pub rf_chain: i32,
     #[serde(flatten)]
-    pub coordinates: Coordinates,
+    pub coordinates: Option<Coordinates>,
 }
 
 /// Location coordinates.
