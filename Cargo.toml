@@ -8,7 +8,7 @@ description = "API mappings for the 'The Things Network'"
 repository = "https://github.com/drogue-iot/drogue-ttn"
 homepage = "https://blog.drogue.io"
 categories = ["api-bindings"]
-keywords = ["ttn", "The Things Network", "IoT", "LoRa", "LoRaWAN"]
+keywords = ["ttn", "TheThingsNetwork", "IoT", "LoRa", "LoRaWAN"]
 readme = "README.md"
 
 [dependencies]
