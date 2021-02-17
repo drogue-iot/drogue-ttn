@@ -5,6 +5,7 @@ pub mod http;
 #[cfg(test)]
 mod test {
     use crate::http::Uplink;
+    use serde_json::json;
 
     #[test]
     pub fn data1() {
@@ -19,5 +20,11 @@ mod test {
 
         assert_eq!("foo", uplink.app_id);
         assert_eq!("device-01", uplink.dev_id);
+        assert_eq!(
+            json!({
+              "luminosity_21": 5
+            }),
+            uplink.payload_fields
+        )
     }
 }

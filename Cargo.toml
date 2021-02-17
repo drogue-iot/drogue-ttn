@@ -1,6 +1,6 @@
 [package]
 name = "drogue-ttn"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Jens Reimann <jreimann@redhat.com>"]
 edition = "2018"
 license = "Apache-2.0"
@@ -14,6 +14,7 @@ readme = "README.md"
 [dependencies]
 
 serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 
 chrono = { version = "0.4", features = ["serde"] }
 url = { version = "2", features = ["serde"] }
