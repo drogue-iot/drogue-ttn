@@ -1,0 +1,12 @@
+{
+    "app_id": "foo",
+    "counter": 0,
+    "dev_id": "device_id",
+    "downlink_url": "https://integrations.thethingsnetwork.org/ttn-eu/api/v2/down/foo/bar?key=ttn-account-v2.12345",
+    "hardware_serial": "00CEFBE673D08000",
+    "metadata": {
+        "time": "2021-02-26T14:05:08.364632245Z"
+    },
+    "payload_raw": "qqqqqqqq",
+    "port": 1
+}

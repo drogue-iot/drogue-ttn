@@ -37,11 +37,11 @@ pub struct Uplink {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Metadata {
     pub time: DateTime<Utc>,
-    pub frequency: f64,
-    pub modulation: String,
+    pub frequency: Option<f64>,
+    pub modulation: Option<String>,
     pub data_rate: Option<String>,
     pub bit_rate: Option<u32>,
-    pub coding_rate: String,
+    pub coding_rate: Option<String>,
 
     #[serde(flatten)]
     pub coordinates: Option<Coordinates>,

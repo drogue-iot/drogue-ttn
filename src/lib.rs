@@ -7,16 +7,19 @@ mod test {
     use crate::http::Uplink;
     use serde_json::json;
 
-    #[test]
-    pub fn data1() {
-        let json = include_bytes!("../test/data1.json");
+    pub fn parse(json:&[u8]) -> Uplink {
         let uplink = serde_json::from_slice(json);
 
         println!("{:?}", uplink);
 
         assert!(uplink.is_ok());
 
-        let uplink: Uplink = uplink.unwrap();
+        uplink.unwrap()
+    }
+
+    #[test]
+    pub fn data1() {
+        let uplink: Uplink = parse(include_bytes!("../test/data1.json"));
 
         assert_eq!("foo", uplink.app_id);
         assert_eq!("device-01", uplink.dev_id);
@@ -27,4 +30,13 @@ mod test {
             uplink.payload_fields
         )
     }
+
+    #[test]
+    pub fn simulation() {
+        let uplink: Uplink = parse(include_bytes!("../test/simulation.json"));
+
+        assert_eq!("foo", uplink.app_id);
+        assert_eq!("device_id", uplink.dev_id);
+    }
+
 }
