@@ -77,7 +77,6 @@ pub struct Settings {
     pub data_rate_index: u16,
     pub coding_rate: String,
     pub frequency: String,
-    pub timestamp: u64,
     pub time: DateTime<Utc>,
 }
 
@@ -95,7 +94,6 @@ pub struct Metadata {
     #[serde(skip_serializing_if = "HashMap::is_empty")]
     pub gateway_ids: HashMap<String, String>,
     pub time: DateTime<Utc>,
-    pub timestamp: u64,
     pub rssi: f64,
     pub channel_rssi: f64,
     pub snr: f64,
