@@ -74,10 +74,24 @@ pub struct Uplink {
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Settings {
-    // pub data_rate
-    pub data_rate_index: u16,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub data_rate_index: Option<u16>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub data_rate: Option<DataRate>,
     pub coding_rate: String,
     pub frequency: String,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum DataRate {
+    Lora(DataRateLora),
+}
+
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
+pub struct DataRateLora {
+    bandwidth: u64,
+    spreading_factor: u16,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
