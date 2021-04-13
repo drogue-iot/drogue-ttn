@@ -1,0 +1,82 @@
+{
+  "correlation_ids": [
+    "as:up:01F35QW9VY4NFSN0HPSR9JK1B5",
+    "ns:uplink:01F35QW9NB3W5C52TG0Y3VF53Y",
+    "pba:conn:up:01F32R9TVQVWXDF18G1V695HH2",
+    "pba:uplink:01F35QW9M97TN7T6DT0P02R6V5",
+    "rpc:/ttn.lorawan.v3.GsNs/HandleUplink:01F35QW9NB373SN8Y0N79FEFT6",
+    "rpc:/ttn.lorawan.v3.NsAs/HandleUplink:01F35QW9VY7TGXPVGWQ0CJWKMW"
+  ],
+  "end_device_ids": {
+    "application_ids": {
+      "application_id": "ctron"
+    },
+    "dev_addr": "01234567",
+    "dev_eui": "0123456789ABCDEF",
+    "device_id": "foo-bar",
+    "join_eui": "0123456789ABCDEF"
+  },
+  "received_at": "2021-04-13T13:49:05.791371978Z",
+  "uplink_message": {
+    "confirmed": true,
+    "consumed_airtime": "0.051456s",
+    "f_port": 1,
+    "frm_payload": "UGluZw==",
+    "received_at": "2021-04-13T13:49:05.579203274Z",
+    "rx_metadata": [
+      {
+        "channel_rssi": -45,
+        "gateway_ids": {
+          "gateway_id": "packetbroker"
+        },
+        "packet_broker": {
+          "forwarder_cluster_id": "ttn-v2-eu-1",
+          "forwarder_net_id": "000013",
+          "forwarder_tenant_id": "ttn",
+          "home_network_cluster_id": "ttn-eu1",
+          "home_network_net_id": "000013",
+          "home_network_tenant_id": "ttn",
+          "hops": [
+            {
+              "received_at": "2021-04-13T13:49:05.545970813Z",
+              "receiver_agent": "pbdataplane/1.5.2 go/1.16.2 linux/amd64",
+              "receiver_name": "router-dataplane-f8764784f-7jfwl",
+              "sender_address": "52.169.73.251"
+            },
+            {
+              "received_at": "2021-04-13T13:49:05.547082314Z",
+              "receiver_agent": "pbrouter/1.5.2 go/1.16.2 linux/amd64",
+              "receiver_name": "router-7665c7b677-7tm85",
+              "sender_address": "forwarder_uplink",
+              "sender_name": "router-dataplane-f8764784f-7jfwl"
+            },
+            {
+              "received_at": "2021-04-13T13:49:05.549041429Z",
+              "receiver_agent": "pbdataplane/1.5.2 go/1.16.2 linux/amd64",
+              "receiver_name": "router-dataplane-f8764784f-n76ql",
+              "sender_address": "deliver.000013_ttn_ttn-eu1.uplink",
+              "sender_name": "router-7665c7b677-7tm85"
+            }
+          ],
+          "message_id": "01F35QW9M97TN7T6DT0P02R6V5"
+        },
+        "rssi": -45,
+        "snr": 9.75,
+        "time": "2021-04-13T13:49:05.568253040Z",
+        "uplink_token": "Zm9vIGJhcg=="
+      }
+    ],
+    "session_key_id": "Zm9vIGJhcg==",
+    "settings": {
+      "coding_rate": "4/5",
+      "data_rate": {
+        "lora": {
+          "bandwidth": 125000,
+          "spreading_factor": 7
+        }
+      },
+      "data_rate_index": 5,
+      "frequency": "868100000"
+    }
+  }
+}

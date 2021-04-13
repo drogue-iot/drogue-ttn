@@ -40,8 +40,9 @@ pub struct JoinAccept {
 pub struct Uplink {
     pub session_key_id: String,
 
+    #[serde(default)]
     #[serde(rename = "f_cnt")]
-    pub frame_counter: u32,
+    pub frame_counter: Option<u32>,
 
     #[serde(default)]
     #[serde(rename = "f_port")]
@@ -77,7 +78,6 @@ pub struct Settings {
     pub data_rate_index: u16,
     pub coding_rate: String,
     pub frequency: String,
-    pub time: DateTime<Utc>,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
@@ -98,7 +98,9 @@ pub struct Metadata {
     pub channel_rssi: f64,
     pub snr: f64,
     pub uplink_token: String,
-    pub channel_index: u32,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub channel_index: Option<u32>,
 }
 
 mod airtime {
@@ -157,6 +159,16 @@ mod test {
     #[test]
     pub fn uplink_1() {
         let json = include_bytes!("../../test/v3/uplink.json");
+        let uplink: Message = serde_json::from_slice(json).unwrap();
+
+        println!("{:#?}", uplink);
+
+        assert!(matches!(uplink.payload, Payload::Uplink(_)));
+    }
+
+    #[test]
+    pub fn uplink_2() {
+        let json = include_bytes!("../../test/v3/uplink2.json");
         let uplink: Message = serde_json::from_slice(json).unwrap();
 
         println!("{:#?}", uplink);
