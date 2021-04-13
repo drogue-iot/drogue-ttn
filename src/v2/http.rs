@@ -1,13 +1,9 @@
 //! Mappings for the HTTP integration.
 
-use base64::STANDARD;
-use base64_serde::base64_serde_type;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use url::Url;
-
-base64_serde_type!(Base64Standard, STANDARD);
 
 /// Uplink message.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -24,7 +20,7 @@ pub struct Uplink {
 
     #[serde(skip_serializing_if = "Value::is_null", default)]
     pub payload_fields: Value,
-    #[serde(with = "Base64Standard")]
+    #[serde(with = "crate::Base64Standard")]
     pub payload_raw: Vec<u8>,
 
     pub metadata: Metadata,
