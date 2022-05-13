@@ -90,8 +90,8 @@ pub enum DataRate {
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct DataRateLora {
-    bandwidth: u64,
-    spreading_factor: u16,
+    pub bandwidth: u64,
+    pub spreading_factor: u16,
 }
 
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
