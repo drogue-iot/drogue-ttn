@@ -64,6 +64,23 @@
         "snr": 9.75,
         "time": "2021-04-13T13:49:05.568253040Z",
         "uplink_token": "Zm9vIGJhcg=="
+      },
+      {
+        "gateway_ids": {
+          "gateway_id": "hidden-gateway",
+          "eui": "BECE5599FFFFFFFF"
+        },
+        "timestamp": 2683985228,
+        "rssi": -131,
+        "channel_rssi": -131,
+        "snr": -11.2,
+        "location": {
+          "latitude": 47.0,
+          "longitude": 8.3,
+          "source": "SOURCE_REGISTRY"
+        },
+        "uplink_token": "ChwKGgoOaGlkZGVuLWdhdGV3YXkSCL7OVZn/vs7+EMy66f8JGgwI+si/lgYQlNvGzQIg4OHxz47PzQI=",
+        "channel_index": 4
       }
     ],
     "session_key_id": "Zm9vIGJhcg==",
