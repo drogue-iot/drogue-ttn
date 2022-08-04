@@ -107,6 +107,8 @@ pub struct Metadata {
     #[serde(default)]
     #[serde(skip_serializing_if = "HashMap::is_empty")]
     pub gateway_ids: HashMap<String, String>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub time: Option<DateTime<Utc>>,
     pub rssi: f64,
     pub channel_rssi: f64,
