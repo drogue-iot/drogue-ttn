@@ -110,7 +110,9 @@ pub struct Metadata {
     pub time: Option<DateTime<Utc>>,
     pub rssi: f64,
     pub channel_rssi: f64,
-    pub snr: f64,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub snr: Option<f64>,
     pub uplink_token: String,
     #[serde(default)]
     #[serde(skip_serializing_if = "Option::is_none")]
