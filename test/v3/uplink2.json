@@ -73,7 +73,6 @@
         "timestamp": 2683985228,
         "rssi": -131,
         "channel_rssi": -131,
-        "snr": -11.2,
         "location": {
           "latitude": 47.0,
           "longitude": 8.3,
