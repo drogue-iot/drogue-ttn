@@ -78,7 +78,8 @@ pub struct Settings {
     pub data_rate_index: Option<u16>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub data_rate: Option<DataRate>,
-    pub coding_rate: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub coding_rate: Option<String>,
     pub frequency: String,
 }
 
