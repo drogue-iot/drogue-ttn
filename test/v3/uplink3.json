@@ -1,0 +1,72 @@
+{
+  "end_device_ids": {
+    "device_id": "some-device-id",
+    "application_ids": { "application_id": "some-app" },
+    "dev_eui": "FFFFFFFFFFFFFFFF",
+    "join_eui": "0000000000000000",
+    "dev_addr": "77777777"
+  },
+  "correlation_ids": ["gs:uplink:01JZG5HJ5E6Q6RS9QB9T9BZZXM"],
+  "received_at": "2025-07-06T15:26:44.606958589Z",
+  "uplink_message": {
+    "session_key_id": "q2P5jLF9Qldmi11CkZU7bg==",
+    "f_port": 3,
+    "frm_payload": "aGVsbG8=",
+    "rx_metadata": [
+      {
+        "gateway_ids": {
+          "gateway_id": "some-gateway",
+          "eui": "AAAAAAAAAAAAAAAA"
+        },
+        "time": "2025-07-06T15:26:44.342732906Z",
+        "timestamp": 12854260,
+        "rssi": -33,
+        "channel_rssi": -33,
+        "snr": 12,
+        "location": {
+          "latitude": 47.0000000000000,
+          "longitude": 8.00000000000000,
+          "altitude": 500,
+          "source": "SOURCE_REGISTRY"
+        },
+        "uplink_token": "cmVkYWN0ZWQtdXBsaW5rLXRva2Vu",
+        "received_at": "2025-07-06T15:26:44.344797626Z"
+      }
+    ],
+    "settings": {
+      "data_rate": {
+        "lora": {
+          "bandwidth": 125000,
+          "spreading_factor": 12,
+          "coding_rate": "4/5"
+        }
+      },
+      "frequency": "868300000",
+      "timestamp": 12854260,
+      "time": "2025-07-06T15:26:44.342732906Z"
+    },
+    "received_at": "2025-07-06T15:26:44.399177939Z",
+    "consumed_airtime": "1.482752s",
+    "locations": {
+      "user": {
+        "latitude": 47.55555555555555,
+        "longitude": 8.555555555555555,
+        "source": "SOURCE_REGISTRY"
+      }
+    },
+    "version_ids": {
+      "brand_id": "dragino",
+      "model_id": "lsn50v2-d20",
+      "hardware_version": "_unknown_hw_version_",
+      "firmware_version": "1.1",
+      "band_id": "EU_863_870"
+    },
+    "network_ids": {
+      "net_id": "000013",
+      "ns_id": "BBBBBBBBBBBBBBBB",
+      "tenant_id": "ttn",
+      "cluster_id": "eu1",
+      "cluster_address": "eu1.cloud.thethings.network"
+    }
+  }
+}

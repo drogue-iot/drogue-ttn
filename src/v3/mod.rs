@@ -99,7 +99,9 @@ pub struct DataRateLora {
 pub struct Location {
     pub latitude: f64,
     pub longitude: f64,
-    pub altitude: f64,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub altitude: Option<f64>,
     pub source: String,
 }
 
@@ -188,6 +190,17 @@ mod test {
     #[test]
     pub fn uplink_2() {
         let json = include_bytes!("../../test/v3/uplink2.json");
+        let uplink: Message = serde_json::from_slice(json).unwrap();
+
+        println!("{:#?}", uplink);
+
+        assert!(matches!(uplink.payload, Payload::Uplink(_)));
+    }
+
+    /// Regression test: Altitude in location may not be present.
+    #[test]
+    pub fn uplink_without_altitude() {
+        let json = include_bytes!("../../test/v3/uplink3.json");
         let uplink: Message = serde_json::from_slice(json).unwrap();
 
         println!("{:#?}", uplink);
