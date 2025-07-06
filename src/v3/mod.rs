@@ -5,6 +5,7 @@ use std::collections::HashMap;
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
+#[allow(clippy::large_enum_variant)]
 pub enum Payload {
     JoinAccept(JoinAccept),
     #[serde(rename = "uplink_message")]
@@ -147,7 +148,7 @@ mod airtime {
         let value = String::deserialize(deserializer)?;
         if let Some(value) = value.strip_suffix("s") {
             let s = value.parse::<f64>().map_err(|_| {
-                serde::de::Error::invalid_value(Unexpected::Str(&value), &"a floating point value")
+                serde::de::Error::invalid_value(Unexpected::Str(value), &"a floating point value")
             })?;
             return Ok(Duration::microseconds((s * 1_000_000.0) as i64));
         }
@@ -170,7 +171,7 @@ mod test {
         let json = include_bytes!("../../test/v3/join_accept.json");
         let uplink: Message = serde_json::from_slice(json).unwrap();
 
-        println!("{:#?}", uplink);
+        println!("{uplink:#?}");
 
         assert!(matches!(uplink.payload, Payload::JoinAccept(_)));
     }
@@ -180,7 +181,7 @@ mod test {
         let json = include_bytes!("../../test/v3/uplink.json");
         let uplink: Message = serde_json::from_slice(json).unwrap();
 
-        println!("{:#?}", uplink);
+        println!("{uplink:#?}");
 
         assert!(matches!(uplink.payload, Payload::Uplink(_)));
     }
@@ -190,7 +191,7 @@ mod test {
         let json = include_bytes!("../../test/v3/uplink2.json");
         let uplink: Message = serde_json::from_slice(json).unwrap();
 
-        println!("{:#?}", uplink);
+        println!("{uplink:#?}");
 
         assert!(matches!(uplink.payload, Payload::Uplink(_)));
     }
