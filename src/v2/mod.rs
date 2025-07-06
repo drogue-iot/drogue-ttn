@@ -10,7 +10,7 @@ mod test {
     pub fn parse(json: &[u8]) -> Uplink {
         let uplink = serde_json::from_slice(json);
 
-        println!("{:?}", uplink);
+        println!("{uplink:?}");
 
         assert!(uplink.is_ok());
 
